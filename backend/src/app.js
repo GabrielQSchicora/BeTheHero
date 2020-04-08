@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const { errors } = require('celebrate')
 const routes = require('./routes');
 
 const app = express();
@@ -13,5 +14,7 @@ app.use(express.json());
 //Rotas
 app.use(routes);
 
-//Porta setada
-app.listen(3333);
+//Celebrate errors
+app.use(errors());
+
+module.exports = app;
